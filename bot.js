@@ -3,7 +3,7 @@ const { exec } = require('child_process');
 const { URL } = require('url'); // Import URL module for URL validation
 
 // Telegram bot token
-const token = '6303718232:AAGvJkQD7WYwiDnRPHaZ2M8CiD4_DBHWkew';
+const token = '6303718232:AAG_dk50RAgZ2_DueqEqx2g3b-EWCuZbErg';
 const bot = new TelegramBot(token, { polling: true });
 
 // Function to check if a string is a valid URL
