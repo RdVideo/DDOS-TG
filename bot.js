@@ -2,7 +2,7 @@ const TelegramBot = require('node-telegram-bot-api');
 const { exec } = require('child_process');
 
 
-const token = '6303718232:AAEQ8AtNXj9VFS9O2h9O0LB5iLYe2Pacgtc';
+const token = '6744405305:AAGqpL2R4HU8vn_KVfJo8r3HNZoLOyx92bU';
 const bot = new TelegramBot(token, { polling: true });
 
 
