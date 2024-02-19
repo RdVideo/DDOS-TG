@@ -1,5 +1,5 @@
 RUN npm install pm2 -g
-ENV PM2_PUBLIC_KEY 23ra97ls7r3ud0r
-ENV PM2_SECRET_KEY hc5eh354zyrbg7g
+ENV PM2_PUBLIC_KEY x7axkgm4nnp9vpy
+ENV PM2_SECRET_KEY r2xdbct938uavx4
 
 CMD ["pm2-runtime", "bot.js"]
