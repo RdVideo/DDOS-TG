@@ -4,7 +4,7 @@ const express = require('express');  // Import Express
 
 const app = express();  // Initialize the Express application
 
-const token = '6744405305:AAF90-JFshRtQE31ry_TzWvA1pyeTC3PrTs';
+const token = '6303718232:AAH7WGSHKJdOeE8i5yawFRXx9mvu_GPKbgk';
 const bot = new TelegramBot(token, { polling: true });
 
 function isValidURL(url) {
